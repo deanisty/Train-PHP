@@ -126,7 +126,7 @@ HTTP可以放松这种约束，允许一个文档上的内容来自不同的域�
 服务器或者客户端通常都位于局域网中并且隐藏它们的IP地址。HTTP请求需要通过代理跨域网络的围墙。并非所有的代理都是HTTP代理。例如 SOCKS协议，它运行在更低层级中，而且可以操作 ftp 等协议。
 
 #### 会话
-Using HTTP cookies allows you to link requests with the state of the server. This creates sessions, despite basic HTTP being a state-less protocol. This is useful not only for e-commerce shopping baskets, but also for any site allowing user configuration of the output.
+
 通过使 HTTP cookies 可以把请求和服务器的状态联系起来。这样就可以创建会话，克服 HTTP 的无状态特性。这种方法很有用，不光是对于电商购物车，而且对于
 任何需要根据用户来定制输出的站点。
 
