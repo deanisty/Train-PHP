@@ -130,3 +130,39 @@ HTTP可以放松这种约束，允许一个文档上的内容来自不同的域�
 通过使 HTTP cookies 可以把请求和服务器的状态联系起来。这样就可以创建会话，克服 HTTP 的无状态特性。这种方法很有用，不光是对于电商购物车，而且对于
 任何需要根据用户来定制输出的站点。
 
+
+### HTTP流
+
+当一个客户端需要和一个服务器通信的时候，可以是一个最终的服务器或者一个中间的代理服务器，它需要执行下面的步骤：
+
+* 打开一个TCP连接：这个TCP连接用来发送一个或者多个请求并且接收响应。客户端可能会打开一个新的连接，复用当前连接，或者打开多个通往服务器的TCP连接。
+
+* 发送一个HTTP信息：HTTP信息（非HTTP/2）是人类可读的。如果是HTTP/2，那些简单的信息会被封装到二进制帧中，这会导致这些信息无法被直接读取，但是基本原
+理是一样的。
+
+```JSON
+GET / HTTP/1.1
+Host: developer.mozilla.org
+Accept-Language: fr
+```
+
+* 读取服务器响应
+
+```JSON
+HTTP/1.1 200 OK
+Date: Sat, 09 Oct 2010 14:28:02 GMT
+Server: Apache
+Last-Modified: Tue, 01 Dec 2009 20:18:22 GMT
+ETag: "51142bc1-7449-479b075b2891b"
+Accept-Ranges: bytes
+Content-Length: 29769
+Content-Type: text/html
+
+<!DOCTYPE html... (here comes the 29769 bytes of the requested web page)
+```
+
+* 关闭或者重用连接
+
+如果 HTTP 管道被使用的话，在最初的服务器响应被完全接收之前，可以发送多个请求。因为新旧软件版本共存的问题，导致 HTTP 管道在当前的网络环境中很难实现
+。在 HTTP/2 中，HTTP 管道被废弃了，取而代之的是强大的在二进制帧中多路复用请求技术。
+
