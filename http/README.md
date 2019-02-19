@@ -62,7 +62,6 @@ user-agent 可以是能够代表用户行为的任何工具。主要是浏览器
 
 #### 代理
 
-Between the Web browser and the server, numerous computers and machines relay the HTTP messages. Due to the layered structure of the Web stack, most of these operate at either the transport, network or physical levels, becoming transparent at the HTTP layer and potentially making a significant impact on performance. Those operating at the application layers are generally called proxies. These can be transparent, or not (changing requests going through them), and may perform numerous functions:
 在web浏览器和服务器之间，还有许多计算机或者机器用来传递HTTP信号。因为web协议栈的分层结构，在传输层、网络层和物理层的操作对于HTTP层来说都是透明的，
 但是这些操作其实对性能的影响起到关键作用。这些操作对于应用层来说通常被称作代理。它们可能是透明的（或者通过修改通过它们的请求从而变成非透明的），并
 且具备很多功能：
@@ -98,7 +97,12 @@ HTTP cookie 被添加到工作流中，并且允许在每一个HTTP请求上创�
 在客户端和服务可以交换HTTP请求和响应之前，他们必须建立TCP连接，这个连接的建立需要一些往返的信息交换。对于HTTP/1.0来说，默认的行为是为每一个
 成对的HTTP请求和响应建立一个TCP连接。但是当有多个请求在短时间内同时发送时，这种方法没有共享一个TCP连接高效。
 
-In order to mitigate this flaw, HTTP/1.1 introduced pipelining (which proved difficult to implement) and persistent connections: the underlying TCP connection can be partially controlled using the Connection header. HTTP/2 went a step further by multiplexing messages over a single connection, helping keep the connection warm, and more efficient.
+为了消除这种缺陷，HTTP/1.1引入了 管道（实现起来比较复杂） 和 持久连接：可以用连接头信息来部分控制底层的TCP连接。而HTTP/2更近一步，可以通过在一个连
+接上多路复用信息来保持连接的活跃和高效。
 
-Experiments are in progress to design a better transport protocol more suited to HTTP. For example, Google is experimenting with QUIC which builds on UDP to provide a more reliable and efficient transport protocol.
+各种正在进行的实验试图设计更好的传输层协议来供HTTP使用。例如，谷歌的 QUIC 实验准备基于 UDP 来设计更可靠和高效的传输协议。
+
+
+### HTTP能控制哪些东西
+
 
