@@ -7,3 +7,5 @@
 * 项目目录： `~/train-php/example`
 
 * 配置 HOST
+
+* 访问示例域名： http://train.php.com/
