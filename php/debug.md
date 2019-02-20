@@ -40,6 +40,14 @@ Xdebug是一个PHP扩展用来协助调试和开发。
 
 * error_log - 日志文件的路径
 
+#### 配合Apache使用
+
+* apache 的 http.conf 文件中 PHPINIDir 指令控制使用系统中的 php.ini 配置文件的路径
+
+* apache 虚拟主机配置文件中的 ErrorLog 指令配置当前虚拟主机的错误日志路径
+
+* 如果 php.ini 文件中的 log_errors 指令未设置日志文件路径 则错误日志输出到 ErrorLog 对应的文件中 否则记录到 log_errors 对应的日志文件中
+
 #### 使用 var_dump() 函数断点调试
 
 如果代码没有错误，但是有 bug ，需要使用 类似 var_dump() 的类似函数进行手动断点调试。
