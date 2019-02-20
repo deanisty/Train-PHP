@@ -2,17 +2,7 @@
 
 #### 实用调试技巧
 
-```PHP
-$a = 1;
-var_dump($a);
-$a = 2;
-
-// 输出： 1 还是 2 ？？
-```
-
-* var_dump打印变量值并且断点调试
-
-* ini_set("display_errors", 1);主要用户调试 500 错误
+[php-debug](https://github.com/deanisty/Train-PHP/blob/master/php/debug.md)
 
 #### 测试过程中过于风控部分的把握	
 
