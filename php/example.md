@@ -4,4 +4,6 @@
 
 * apache 配置文件： `/usr/local/apache2/conf/vhosts/train-php.conf`
 
+* 项目目录： `~/train-php/example`
+
 * 配置 HOST
