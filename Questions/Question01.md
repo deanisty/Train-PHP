@@ -33,8 +33,17 @@ https://www.jianshu.com/p/1fecafc15772
 
 #### 自动加载 spl_autoload 机制	
 
+https://github.com/deanisty/Train-PHP/blob/master/php/autoload.md
 
+#### php脚本怎么运行的	
 
-#### php脚本怎么运行的		
+[PHP基础](https://github.com/deanisty/Train-PHP/blob/master/php/README.md)
+
 #### php的缓存机制			
+
+
+
 #### 经常在白盒的时候看到新项目使用已有的model下的方法，开发时是如何知道这个是已有的，凭经验？
+
+基本上是的。可以使用编辑器的搜索功能
+
