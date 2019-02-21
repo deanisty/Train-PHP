@@ -41,6 +41,8 @@ https://github.com/deanisty/Train-PHP/blob/master/php/autoload.md
 
 #### php的缓存机制			
 
+* https://github.com/deanisty/PHP7-internal-dissect/blob/master/opcache/README.md
+* http://php.net/manual/zh/function.ob-start.php
 
 
 #### 经常在白盒的时候看到新项目使用已有的model下的方法，开发时是如何知道这个是已有的，凭经验？
