@@ -41,9 +41,9 @@ https://github.com/deanisty/Train-PHP/blob/master/php/autoload.md
 
 #### php的缓存机制			
 
-* https://github.com/deanisty/PHP7-internal-dissect/blob/master/opcache/README.md
-* http://php.net/manual/zh/function.ob-start.php
+* http://php.net/manual/zh/refs.basic.php.php
 
+apc已经被apcu替代，可参看 fsdk -> fc 部分，以及 apcinfo.php 文件
 
 #### 经常在白盒的时候看到新项目使用已有的model下的方法，开发时是如何知道这个是已有的，凭经验？
 
