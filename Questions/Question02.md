@@ -27,6 +27,11 @@ App::init()
 
 App::exec()
 
+* 请求分组/模块名称合法性检测
+* 从配置中获取设置的分组和模块
+* 加载模块
+* 执行请求的Action对应的方法
+* Action对应的方法可以直接输出结果（ajax）也可以调用模板的display()方法展示页面（HTML）
 
 #### ThinkPHP框架优缺点			
 #### global配置相是thinkphp框架有什么关系？	
