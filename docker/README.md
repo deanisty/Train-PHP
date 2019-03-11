@@ -8,7 +8,7 @@ https://docs.docker.com/install/linux/docker-ce/centos/
 
 https://docs.docker.com/install/linux/linux-postinstall/
 
-##### 概念
+##### 原理
 
 ```shell
 Hello from Docker!
