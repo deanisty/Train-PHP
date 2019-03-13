@@ -28,3 +28,8 @@ To generate this message, Docker took the following steps:
 * 后台进程从映像站拉取映像文件
 * 后台进程通过映像文件创建一个新的容器，容器中运行的可执行文件产生输出内容
 * 后台进程通过数据流把输出传输给客户端
+
+
+##### kubernetes & docker
+
+http://dockone.io/article/2110
