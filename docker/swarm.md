@@ -13,4 +13,34 @@ dokcer的集群就是一组运行docker的机器组成的一个集合。在集�
 
 #### 配置集群
 
-A swarm is made up of multiple nodes, which can be either physical or virtual machines. The basic concept is simple enough: run docker swarm init to enable swarm mode and make your current machine a swarm manager, then run docker swarm join on other machines to have them join the swarm as workers. Choose a tab below to see how this plays out in various contexts. We use VMs to quickly create a two-machine cluster and turn it into a swarm.
+集群是由多个节点组成的，节点可以是物理机器或者虚拟机。基本原理很简单：运行 `docker swarm init` 命令启用 swarm 模式并且设置当前机器为集群管理器，然后在其他机器上运行 `docker swarm join` 命令使之以 worker 的身份加入集群。
+
+##### virtualbox
+
+首先安装 virtualbox 用来创建虚拟机
+
+[安装链接](https://www.virtualbox.org/wiki/Downloads)
+
+使用 `docker-machine` 命令并已 virtualbox 作为驱动来制作虚拟机器
+
+```SHELL
+docker-machine create --driver virtualbox myvm1
+docker-machine create --driver virtualbox myvm2
+```
+
+##### 获取虚拟机器列表和IP地址
+
+```SHELL
+docker-machine ls
+
+$ docker-machine ls
+NAME    ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS
+myvm1   -        virtualbox   Running   tcp://192.168.99.100:2376           v17.06.2-ce
+myvm2   -        virtualbox   Running   tcp://192.168.99.101:2376           v17.06.2-ce
+```
+
+##### 初始化集群并添加节点
+
+The first machine acts as the manager, which executes management commands and authenticates workers to join the swarm, and the second is a worker.
+
+You can send commands to your VMs using docker-machine ssh. Instruct myvm1 to become a swarm manager with docker swarm init and look for output like this:
