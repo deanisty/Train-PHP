@@ -126,3 +126,30 @@ redis.
 
 * placement 指令限制了 redis 容器总是使用同一个机器
 * volume 指令将 redis 容器的 /data 目录映射到主机的 ./data 目录并允许其访问，因此在 redis 容器启动和终止过程中，redis 保存的数据不会丢失
+
+
+##### 创建 data 目录
+
+```SHELL
+mkdir ./data
+```
+
+##### 重新部署服务栈
+
+```SHELL
+docker stack deploy -c docker-compose.yml getstartedlab
+```
+
+##### 查看服务
+
+```SHELL
+docker service ls
+```
+
+##### 访问 80 端口查看 redis 保存数据
+
+自己看
+
+##### 访问 8080 端口查看 visualizer
+
+自己看
