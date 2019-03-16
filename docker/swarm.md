@@ -41,6 +41,40 @@ myvm2   -        virtualbox   Running   tcp://192.168.99.101:2376           v17.
 
 ##### 初始化集群并添加节点
 
-The first machine acts as the manager, which executes management commands and authenticates workers to join the swarm, and the second is a worker.
-
+第一个虚拟机器作为管理器，用于执行命令和授权其他机器加入集群，第二个虚拟机器作为worker。
 You can send commands to your VMs using docker-machine ssh. Instruct myvm1 to become a swarm manager with docker swarm init and look for output like this:
+通过运行 `docker-machine ssh` 发送命令到虚拟机中。首先通过 `docker swarm init` 设置 vm1为集群管理器，命令的输出如下：
+
+```SHELL
+$ docker-machine ssh myvm1 "docker swarm init --advertise-addr <myvm1 ip>"
+Swarm initialized: current node <node ID> is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+  docker swarm join \
+  --token <token> \
+  <myvm ip>:<port>
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+```
+
+在第二个虚拟机上运行 `docker swarm join` 命令将其加入集群中
+
+```SHELL
+$ docker-machine ssh myvm2 "docker swarm join \
+--token <token> \
+<ip>:2377"
+
+This node joined a swarm as a worker.
+```
+
+使用 `docker node ls` 命令可以列出刚才创建的节点
+
+```SHELL
+$ docker-machine ssh myvm1 "docker node ls"
+ID                            HOSTNAME            STATUS              AVAILABILITY        MANAGER STATUS
+brtu9urxwfd5j0zrmkubhpkbd     myvm2               Ready               Active
+rihwohkh3ph38fhillhhb84sk *   myvm1               Ready               Active              Leader
+```
+
+在每个节点机器上运行 `docker swarm leave` 命令可以使其退出集群。
